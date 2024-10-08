@@ -35,7 +35,6 @@ class _quranScreenState extends State<quranScreen> {
           onTap: (Index) {
             currentIndex = Index;
             setState(() {});
-            print(currentIndex);
           },
           items: [
             BottomNavigationBarItem(

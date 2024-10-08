@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const Color lightPrimary = Color(0xffB7935F);
@@ -9,6 +10,7 @@ class AppTheme {
 
   static ThemeData lightTheme = ThemeData(
     appBarTheme: AppBarTheme(
+      elevation: 0,
       backgroundColor: Colors.transparent,
       centerTitle: true,
       titleTextStyle: TextStyle(
@@ -24,6 +26,7 @@ class AppTheme {
         selectedItemColor: black,
         unselectedItemColor: white,
         type: BottomNavigationBarType.fixed),
+    textTheme: GoogleFonts.elMessiriTextTheme(),
   );
 
   static ThemeData darkTheme = ThemeData(

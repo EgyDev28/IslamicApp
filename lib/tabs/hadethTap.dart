@@ -5,7 +5,8 @@ class hadethTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text('Hadeth'),
+      body: Align(alignment: Alignment.center,
+          child: Text('Hadeth',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold))),
     );
   }
 }

@@ -6,7 +6,8 @@ class quranTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.transparent,
-      body:Text('Quran'),
+      body:Align(alignment: Alignment.center,
+          child: Text('Quran',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold))),
     );
   }
 }
