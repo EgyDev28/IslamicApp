@@ -69,6 +69,7 @@ flutter:
     - assets/images/body_sebha_logo.png
     - assets/images/head_sebha_logo.png
     - assets/images/radio_image.png
+    - assets/images/qur2an_screen_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

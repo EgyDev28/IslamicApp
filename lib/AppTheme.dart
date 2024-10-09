@@ -9,6 +9,7 @@ class AppTheme {
   static const Color gold = Color(0xffB7935F);
 
   static ThemeData lightTheme = ThemeData(
+
     appBarTheme: AppBarTheme(
       elevation: 0,
       backgroundColor: Colors.transparent,

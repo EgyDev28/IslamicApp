@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamicapp/AppTheme.dart';
 import 'package:islamicapp/QuarnScreen.dart';
+import 'package:islamicapp/Sura/SuraScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.light,
         routes: {
           quranScreen.routeName: (_) => quranScreen(),
+          SuraScreen.routeName:(_) => SuraScreen(),
         });
   }
 }
