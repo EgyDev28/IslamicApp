@@ -1,28 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:islamicapp/AppTheme.dart';
-import 'package:islamicapp/tabs/Qurantab.dart';
 
-class SuraScreen extends StatefulWidget {
-  static const String routeName = '/SuraScreen';
-
-  @override
-  State<SuraScreen> createState() => _SuraScreenState();
-}
-
-class _SuraScreenState extends State<SuraScreen> {
-  List <String> Ayat = [];
-
-  late SuraArgument Args;
+class HadethScreen extends StatelessWidget {
+static const routeName ='/HadethScreen';
 
   @override
   Widget build(BuildContext context) {
-    Args = ModalRoute.of(context)!.settings.arguments as SuraArgument;
-    if (Ayat.isEmpty) {
-      print('yes');
-      LoadSuraContant();
-    }else{print('No');}
-
     return Container(
       padding: EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
@@ -54,13 +36,5 @@ class _SuraScreenState extends State<SuraScreen> {
         ),
       ),
     );
-  }
-
-  Future<void> LoadSuraContant() async {
-    String AyatContant =
-        await rootBundle.loadString('assets/Sura/${Args.index+1}.txt');
-    Ayat = AyatContant.split('/n');
-    print(Ayat[0]);
-    setState(() {});
   }
 }

@@ -70,6 +70,13 @@ flutter:
     - assets/images/head_sebha_logo.png
     - assets/images/radio_image.png
     - assets/images/qur2an_screen_logo.png
+    - assets/Sura/1.txt
+    - assets/Sura/2.txt
+    - assets/Sura/3.txt
+    - assets/Sura/4.txt
+    - assets/Sura/5.txt
+    - assets/Sura/6.txt
+    - assets/Hadeth/ahadeth.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
