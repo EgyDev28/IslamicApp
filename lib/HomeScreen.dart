@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamicapp/AppTheme.dart';
 import 'package:islamicapp/tabs/Qurantab.dart';
+import 'package:islamicapp/tabs/SettingTab.dart';
 import 'package:islamicapp/tabs/hadethTap.dart';
 import 'package:islamicapp/tabs/radioTap.dart';
 import 'package:islamicapp/tabs/sebhaTab.dart';
@@ -19,6 +20,7 @@ class _quranScreenState extends State<quranScreen> {
     hadethTab(),
     sebhaTab(),
     radioTab(),
+    SettingTab(),
   ];
 
   @override
@@ -52,6 +54,10 @@ class _quranScreenState extends State<quranScreen> {
             BottomNavigationBarItem(
               label: 'Radio',
               icon: ImageIcon(AssetImage('assets/images/icon_radio.png')),
+            ),
+            BottomNavigationBarItem(
+              label: 'Setting',
+              icon: Icon(Icons.settings),
             ),
           ],
         ),
