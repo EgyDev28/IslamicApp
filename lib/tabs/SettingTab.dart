@@ -40,12 +40,17 @@ class _SettingTabState extends State<SettingTab> {
               Text('Langauge',
                   style: TextStyle(color:Provider.of<SettingProvider>(context).isDark ? AppTheme.gold:AppTheme.black,fontSize: 25, fontWeight: FontWeight.bold)),
               DropdownButton<Language>(
-                value: Languages.first,
+                value: Languages.firstWhere((language) =>
+                language.code == settingProvider.languagecode),
                 items: Languages.map((language) => DropdownMenuItem(
                       child: Text(language.name),
                       value: language,
                     )).toList(),
-                onChanged: (selectedLanguage) {},
+                onChanged: (selectedLanguage) {
+                  if (selectedLanguage != null) {
+                    settingProvider.changeLanguage(selectedLanguage.code);
+                  }
+                  },
                 borderRadius: BorderRadius.circular(20),
                 style: TextStyle(color:Provider.of<SettingProvider>(context).isDark ? AppTheme.gold:AppTheme.black),
                 dropdownColor: Provider.of<SettingProvider>(context).isDark ? AppTheme.darkPrimary:AppTheme.white,

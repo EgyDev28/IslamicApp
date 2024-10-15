@@ -5,6 +5,9 @@ import 'package:islamicapp/HomeScreen.dart';
 import 'package:islamicapp/Setting/Setting.dart';
 import 'package:islamicapp/Sura/SuraScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 
 void main() {
   runApp(
@@ -30,6 +33,10 @@ class MyApp extends StatelessWidget {
           quranScreen.routeName: (_) => quranScreen(),
           SuraScreen.routeName:(_) => SuraScreen(),
           HadethScreen.routeName:(_)=>HadethScreen(),
-        });
+        },
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(settingProvider.languagecode),
+    );
   }
 }

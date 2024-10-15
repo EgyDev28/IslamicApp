@@ -7,6 +7,7 @@ import 'package:islamicapp/tabs/hadethTap.dart';
 import 'package:islamicapp/tabs/radioTap.dart';
 import 'package:islamicapp/tabs/sebhaTab.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class quranScreen extends StatefulWidget {
   static const String routeName = '/quranScreen';
@@ -32,7 +33,7 @@ class _quranScreenState extends State<quranScreen> {
           image: DecorationImage(
               image: AssetImage('assets/images/${Provider.of<SettingProvider>(context).backgroundimage}.png'))),
       child: Scaffold(
-        appBar: AppBar(title: Text('اسلامي')),
+        appBar: AppBar(title: Text('${AppLocalizations.of(context)!.islami}')),
         body: tabs[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
@@ -42,23 +43,23 @@ class _quranScreenState extends State<quranScreen> {
           },
           items: [
             BottomNavigationBarItem(
-              label: 'Quran',
+              label: '${AppLocalizations.of(context)!.quran}',
               icon: ImageIcon(AssetImage('assets/images/icon_quran.png')),
             ),
             BottomNavigationBarItem(
-              label: 'Hadteh',
+              label: '${AppLocalizations.of(context)!.hadeth}',
               icon: ImageIcon(AssetImage('assets/images/icon_hadeth.png')),
             ),
             BottomNavigationBarItem(
-              label: 'Sebha',
+              label: '${AppLocalizations.of(context)!.sebha}',
               icon: ImageIcon(AssetImage('assets/images/icon_sebha.png')),
             ),
             BottomNavigationBarItem(
-              label: 'Radio',
+              label: '${AppLocalizations.of(context)!.radio}',
               icon: ImageIcon(AssetImage('assets/images/icon_radio.png')),
             ),
             BottomNavigationBarItem(
-              label: 'Setting',
+              label: '${AppLocalizations.of(context)!.setting}',
               icon: Icon(Icons.settings),
             ),
           ],

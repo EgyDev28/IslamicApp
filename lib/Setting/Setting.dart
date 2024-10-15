@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class SettingProvider with ChangeNotifier {
+
   ThemeMode themeMode = ThemeMode.light;
-  String languagecode = 'en';
+  String languagecode = 'ar';
 
   void changeTheme (ThemeMode selectedMode){
     themeMode = selectedMode;
