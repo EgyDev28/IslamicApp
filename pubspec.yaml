@@ -71,6 +71,9 @@ flutter:
     - assets/images/head_sebha_logo.png
     - assets/images/radio_image.png
     - assets/images/qur2an_screen_logo.png
+    - assets/Hadeth/ahadeth.txt
+    - assets/images/dark_bg.png
+    - assets/Sura/1.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islamicapp/AppTheme.dart';
+import 'package:islamicapp/Setting/Setting.dart';
 import 'package:islamicapp/Sura/SuraScreen.dart';
+import 'package:provider/provider.dart';
 
 class quranTab extends StatelessWidget {
   @override
@@ -120,6 +123,7 @@ class quranTab extends StatelessWidget {
       "الفلق",
       "الناس"
     ];
+
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -137,7 +141,7 @@ class quranTab extends StatelessWidget {
                       Soura[index],
                       textAlign: TextAlign.center,
                       style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
+                          TextStyle(color: Provider.of<SettingProvider>(context).isDark ? AppTheme.gold:AppTheme.black,fontWeight: FontWeight.w400, fontSize: 25),
                     ),
                     onTap: () {
                       Navigator.of(_).pushNamed(

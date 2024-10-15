@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamicapp/AppTheme.dart';
 import 'package:islamicapp/Setting/Language.dart';
 import 'package:islamicapp/Setting/Setting.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,7 @@ class _SettingTabState extends State<SettingTab> {
             children: [
               Text(
                 'Dark Mode',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(color:Provider.of<SettingProvider>(context).isDark ? AppTheme.gold:AppTheme.black,fontSize: 25, fontWeight: FontWeight.bold),
               ),
               Switch(
                   value: settingProvider.themeMode == ThemeMode.dark,
@@ -37,7 +38,7 @@ class _SettingTabState extends State<SettingTab> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Langauge',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                  style: TextStyle(color:Provider.of<SettingProvider>(context).isDark ? AppTheme.gold:AppTheme.black,fontSize: 25, fontWeight: FontWeight.bold)),
               DropdownButton<Language>(
                 value: Languages.first,
                 items: Languages.map((language) => DropdownMenuItem(
@@ -46,6 +47,8 @@ class _SettingTabState extends State<SettingTab> {
                     )).toList(),
                 onChanged: (selectedLanguage) {},
                 borderRadius: BorderRadius.circular(20),
+                style: TextStyle(color:Provider.of<SettingProvider>(context).isDark ? AppTheme.gold:AppTheme.black),
+                dropdownColor: Provider.of<SettingProvider>(context).isDark ? AppTheme.darkPrimary:AppTheme.white,
               ),
             ],
           ),

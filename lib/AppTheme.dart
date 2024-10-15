@@ -31,6 +31,22 @@ class AppTheme {
   );
 
   static ThemeData darkTheme = ThemeData(
-    primaryColor: darkPrimary,
-  );
+  appBarTheme: AppBarTheme(
+  elevation: 0,
+  backgroundColor: Colors.transparent,
+  centerTitle: true,
+  titleTextStyle: TextStyle(
+  fontSize: 38,
+  color: gold,
+  fontWeight: FontWeight.bold,
+  ),
+  ),
+  scaffoldBackgroundColor: Colors.transparent,
+  primaryColor: darkPrimary,
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  backgroundColor: darkPrimary,
+  selectedItemColor: gold,
+  unselectedItemColor: white,
+  type: BottomNavigationBarType.fixed),
+  textTheme: GoogleFonts.elMessiriTextTheme(),);
 }

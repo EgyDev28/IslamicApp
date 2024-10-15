@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:islamicapp/AppTheme.dart';
+import 'package:islamicapp/Setting/Setting.dart';
 import 'package:islamicapp/tabs/Qurantab.dart';
 import 'package:islamicapp/tabs/SettingTab.dart';
 import 'package:islamicapp/tabs/hadethTap.dart';
 import 'package:islamicapp/tabs/radioTap.dart';
 import 'package:islamicapp/tabs/sebhaTab.dart';
+import 'package:provider/provider.dart';
 
 class quranScreen extends StatefulWidget {
   static const String routeName = '/quranScreen';
@@ -28,7 +30,7 @@ class _quranScreenState extends State<quranScreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/default_bg.png'))),
+              image: AssetImage('assets/images/${Provider.of<SettingProvider>(context).backgroundimage}.png'))),
       child: Scaffold(
         appBar: AppBar(title: Text('اسلامي')),
         body: tabs[currentIndex],

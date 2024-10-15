@@ -14,6 +14,9 @@ class SettingProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  bool get isDark => themeMode == ThemeMode.dark;
+  String get backgroundimage => isDark ? 'dark_bg' : 'default_bg';
+
 
   }
 

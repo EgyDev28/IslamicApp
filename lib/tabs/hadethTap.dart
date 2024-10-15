@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamicapp/AppTheme.dart';
 import 'package:islamicapp/Hadeth/HadethContent.dart';
+import 'package:islamicapp/Hadeth/HadethScreen.dart';
+import 'package:islamicapp/Setting/Setting.dart';
+import 'package:provider/provider.dart';
 
 class hadethTab extends StatelessWidget {
+  List<HadethContent> HadethContents = [];
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    LoadHadethContant();
+    return Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
           width: double.infinity,
@@ -19,42 +25,35 @@ class hadethTab extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (_, index) => GestureDetector(
-                    child: Text(HadethContent(),                      ,
-                      textAlign: TextAlign.center,
-                      style:
-                      TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
-                    ),
-                    onTap: () {
-                      Navigator.of(_).pushNamed(
-                        SuraScreen.routeName,
-                        arguments:
-                        SuraArgument(
-                            index: index,
-                            SuraName: Soura[index]
-                        ),
-                      );
-                    },
-                  ),
-                  itemCount: 100,
+                      child: Text(
+                        HadethContents[index].hadethTitle,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Provider.of<SettingProvider>(context).isDark ? AppTheme.gold:AppTheme.black
+                            ,fontWeight: FontWeight.w400, fontSize: 25),
+                      ),
+                      onTap: () {
+                        Navigator.of(_).pushNamed(
+                          HadethScreen.routeName,
+                          arguments: HadethContents[index],
+                        );
+                      }),
+                  itemCount: HadethContents.length,
                 ),
               ),
             ],
           ),
-        )
-    );
+        ));
   }
-  
-  Future<void>LoadHadethContant ()async{
-    String hadethContant = rootBundle.loadString('assets/Hadeth/ahadeth.txt');
+
+  Future<void> LoadHadethContant() async {
+    String hadethContant = await rootBundle.loadString('assets/Hadeth/ahadeth.txt');
     List<String> hadethSplit = hadethContant.split('#');
-    hadethSplit.map((hadethString){
-      List<String>hadethLines = hadethString.split('/n');
-      String title = hadethContant[0];
+    HadethContents = hadethSplit.map((hadethString) {
+      List<String> hadethLines = hadethString.trim().split('\n');
+      String title = hadethLines[0];
       hadethLines.removeAt(0);
-      List <String> Content = hadethLines;
-      return HadethContent(hadethContent: Content, hadethTitle:title);
+      List<String> Content = hadethLines;
+      return HadethContent(hadethContent: Content, hadethTitle: title);
     }).toList();
-
-
   }
 }

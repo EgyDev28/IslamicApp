@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamicapp/AppTheme.dart';
+import 'package:islamicapp/Setting/Setting.dart';
 import 'package:islamicapp/tabs/Qurantab.dart';
+import 'package:provider/provider.dart';
 
 class SuraScreen extends StatefulWidget {
   static const String routeName = '/SuraScreen';
@@ -27,7 +29,7 @@ class _SuraScreenState extends State<SuraScreen> {
       padding: EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+          image: AssetImage('assets/images/${Provider.of<SettingProvider>(context).backgroundimage}.png'),
         ),
       ),
       child: Scaffold(
@@ -44,11 +46,11 @@ class _SuraScreenState extends State<SuraScreen> {
           height: 652,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            color: AppTheme.white,
+            color: Provider.of<SettingProvider>(context).isDark ? AppTheme.darkPrimary:AppTheme.white,
           ),
           child: ListView.builder(
             itemBuilder: (_, index) =>
-                Text(Ayat[index], style: TextStyle(color: AppTheme.black,fontSize: 20),textAlign: TextAlign.center),
+                Text(Ayat[index], style: TextStyle(color: Provider.of<SettingProvider>(context).isDark ? AppTheme.gold:AppTheme.black,fontSize: 20),textAlign: TextAlign.center),
             itemCount: Ayat.length,
           ),
         ),
@@ -60,7 +62,6 @@ class _SuraScreenState extends State<SuraScreen> {
     String AyatContant =
         await rootBundle.loadString('assets/Sura/${Args.index+1}.txt');
     Ayat = AyatContant.split('/n');
-    print(Ayat[0]);
     setState(() {});
   }
 }
