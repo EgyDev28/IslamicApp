@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamicapp/AppTheme.dart';
+import 'package:islamicapp/LoadingCircular.dart';
 import 'package:islamicapp/Setting/Setting.dart';
 import 'package:islamicapp/tabs/Qurantab.dart';
 import 'package:provider/provider.dart';
@@ -21,10 +22,9 @@ class _SuraScreenState extends State<SuraScreen> {
   Widget build(BuildContext context) {
     Args = ModalRoute.of(context)!.settings.arguments as SuraArgument;
     if (Ayat.isEmpty) {
-      print('yes');
+      circularLoading();
       LoadSuraContant();
-    }else{print('No');}
-
+    }
     return Container(
       padding: EdgeInsets.only(top: 20),
       decoration: BoxDecoration(

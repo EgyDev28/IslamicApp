@@ -3,6 +3,7 @@ import 'package:islamicapp/AppTheme.dart';
 import 'package:islamicapp/Setting/Language.dart';
 import 'package:islamicapp/Setting/Setting.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingTab extends StatefulWidget {
   @override
@@ -31,7 +32,9 @@ class _SettingTabState extends State<SettingTab> {
               ),
               Switch(
                   value: settingProvider.themeMode == ThemeMode.dark,
-                  onChanged: (isDark)=> settingProvider.changeTheme(isDark?ThemeMode.dark:ThemeMode.light)),
+                  onChanged: (isDark)=> settingProvider.saveThemeAtInit(isDark)
+              ),
+
             ],
           ),
           Row(
@@ -48,7 +51,7 @@ class _SettingTabState extends State<SettingTab> {
                     )).toList(),
                 onChanged: (selectedLanguage) {
                   if (selectedLanguage != null) {
-                    settingProvider.changeLanguage(selectedLanguage.code);
+                    settingProvider.saveLangAtInit(selectedLanguage.code);
                   }
                   },
                 borderRadius: BorderRadius.circular(20),

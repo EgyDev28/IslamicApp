@@ -3,15 +3,24 @@ import 'package:flutter/services.dart';
 import 'package:islamicapp/AppTheme.dart';
 import 'package:islamicapp/Hadeth/HadethContent.dart';
 import 'package:islamicapp/Hadeth/HadethScreen.dart';
+import 'package:islamicapp/LoadingCircular.dart';
 import 'package:islamicapp/Setting/Setting.dart';
 import 'package:provider/provider.dart';
 
-class hadethTab extends StatelessWidget {
+class hadethTab extends StatefulWidget {
+  @override
+  State<hadethTab> createState() => _hadethTabState();
+}
+
+class _hadethTabState extends State<hadethTab> {
   List<HadethContent> HadethContents = [];
 
   @override
   Widget build(BuildContext context) {
-    LoadHadethContant();
+    if(HadethContents.isEmpty){
+      circularLoading();
+      LoadHadethContant();
+    };
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -21,9 +30,10 @@ class hadethTab extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/qur2an_screen_logo.png'),
+              Image.asset('assets/images/hadeth_logo.png'),
               Expanded(
-                child: ListView.builder(
+                child: ListView.separated(
+                  separatorBuilder: (_,index)=>SizedBox(height: 15,),
                   itemBuilder: (_, index) => GestureDetector(
                       child: Text(
                         HadethContents[index].hadethTitle,
@@ -55,5 +65,6 @@ class hadethTab extends StatelessWidget {
       List<String> Content = hadethLines;
       return HadethContent(hadethContent: Content, hadethTitle: title);
     }).toList();
+    setState(() {});
   }
 }

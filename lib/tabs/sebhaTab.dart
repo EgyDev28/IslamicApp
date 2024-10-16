@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamicapp/AppTheme.dart';
+import 'package:islamicapp/Setting/Setting.dart';
+import 'package:provider/provider.dart';
 
 class sebhaTab extends StatefulWidget {
   @override
@@ -38,7 +40,7 @@ class _sebhaTabState extends State<sebhaTab> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: Text('عدد التسبيحات',
-                style: GoogleFonts.elMessiri(fontSize: 25,fontWeight: FontWeight.w600),
+                style: GoogleFonts.elMessiri(fontSize: 25,fontWeight: FontWeight.w600,color: Provider.of<SettingProvider>(context)!.isDark ?AppTheme.gold:AppTheme.black),
                   ),
             ),
             Container(

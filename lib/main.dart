@@ -6,10 +6,15 @@ import 'package:islamicapp/Setting/Setting.dart';
 import 'package:islamicapp/Sura/SuraScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool? Mode = prefs.getBool('Mode');
+  String? Lang = prefs.getString('Lang');
   runApp(
       ChangeNotifierProvider(
           create:(_) => SettingProvider() ,
@@ -21,14 +26,16 @@ void main() {
 class MyApp extends StatelessWidget {
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
     SettingProvider settingProvider = Provider.of<SettingProvider>(context);
+    settingProvider.getThemeAtInit();
+    settingProvider.getLangAtInit();
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: quranScreen.routeName,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
-        themeMode: settingProvider.themeMode,
+        themeMode:settingProvider.themeMode,
         routes: {
           quranScreen.routeName: (_) => quranScreen(),
           SuraScreen.routeName:(_) => SuraScreen(),

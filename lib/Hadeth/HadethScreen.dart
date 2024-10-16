@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamicapp/AppTheme.dart';
 import 'package:islamicapp/Hadeth/HadethContent.dart';
+import 'package:islamicapp/LoadingCircular.dart';
 import 'package:islamicapp/Setting/Setting.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +11,9 @@ static const String routeName ='/HadethScreen';
   @override
   Widget build(BuildContext context) {
     HadethContent Args = ModalRoute.of(context)!.settings.arguments as HadethContent;
+    if(Args.hadethContent.isEmpty){
+      circularLoading();
+    }
     return Container(
       padding: EdgeInsets.only(top: 10),
       decoration: BoxDecoration(

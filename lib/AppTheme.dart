@@ -11,6 +11,7 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
 
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(color: black),
       elevation: 0,
       backgroundColor: Colors.transparent,
       centerTitle: true,
@@ -32,6 +33,7 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
   appBarTheme: AppBarTheme(
+    iconTheme: IconThemeData(color: gold),
   elevation: 0,
   backgroundColor: Colors.transparent,
   centerTitle: true,
