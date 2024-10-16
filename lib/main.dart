@@ -6,15 +6,10 @@ import 'package:islamicapp/Setting/Setting.dart';
 import 'package:islamicapp/Sura/SuraScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool? Mode = prefs.getBool('Mode');
-  String? Lang = prefs.getString('Lang');
   runApp(
       ChangeNotifierProvider(
           create:(_) => SettingProvider() ,
